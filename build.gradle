@@ -28,12 +28,36 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation "io.jsonwebtoken:jjwt:0.9.1"
 	implementation 'org.jetbrains.kotlin:kotlin-reflect'
+	implementation 'com.sun.mail:javax.mail:1.6.2'
+ 	implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.0.1.RELEASE'
+	implementation 'com.amazonaws:aws-java-sdk-s3:1.12.103'
+ 
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.3'
+    implementation 'io.projectreactor.kotlin:reactor-kotlin-extensions:1.1.2'
+
+	implementation 'org.springframework.boot:spring-boot-starter-batch'
+	implementation 'org.springframework.batch:spring-batch-core:4.3.3'
+    implementation 'org.springframework.batch:spring-batch-infrastructure:4.3.3'
+	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+	implementation 'org.springframework:spring-context'
+
 	compileOnly 'org.projectlombok:lombok'
+	
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
+	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	
 	runtimeOnly 'com.mysql:mysql-connector-j'
 }
 
@@ -48,12 +72,3 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-// tasks.withType(JavaExec) {
-//     doFirst {
-//         javaHome = System.getenv("JAVA_HOME")
-//         if (javaHome == null) {
-//             throw new IllegalStateException("JAVA_HOME is not set.")
-//         }
-//         javaHome = new File(javaHome).getAbsolutePath()
-//     }
-// }

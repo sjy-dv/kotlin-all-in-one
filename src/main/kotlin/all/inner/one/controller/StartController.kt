@@ -12,7 +12,8 @@ import org.springframework.http.HttpStatus;
 import java.util.HashMap;
 import java.util.Map;
 
-import all.inner.one.vo.*;
+import all.inner.one.models.*;
+import kotlinx.coroutines.*
 
 @Controller
 class StartController {
@@ -38,4 +39,16 @@ class StartController {
     fun postBody(@RequestBody req: SimpleVo):ResponseEntity<SimpleVo> {
         return ResponseEntity(req,HttpStatus.OK)
     }
+
+    @GetMapping("/coroutine")
+    fun koroutine_test(): ResponseEntity<Any> {
+        GlobalScope.launch {
+            for (i in 1..10) {
+                println("in coroutine $i")
+            }
+        }   
+        println("<><><>this<><><>")
+        return ResponseEntity("ok", HttpStatus.OK)
+    }
+    
 }
